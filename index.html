@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<style>
+			#experiment {
+				-webkit-perspective: 800;
+			}
+			
+			#cube {
+				position:relative;
+				margin: 0 auto;
+				width: 400px;
+				height: 400px;
+				-webkit-transition: -webkit-transform 2s linear;
+				-webkit-transform: rotateY(20deg) rotateX(25deg);
+				-webkit-transform-style: preserve-3d; 
+			}
+			
+			.face {
+				position: absolute;
+				width: 360px;
+				height: 360px;
+				padding: 20px;
+				background-color: rgba(50, 50, 50, 0.7); 
+			}
+			
+			#cube .one {
+				-webkit-transform: rotateX(90deg) translateZ(200px);
+				background-color: rgba(70, 70, 70, 0.7); 
+			}
+			
+			#cube .two {
+				-webkit-transform: translateZ(200px);
+				background-color: rgba(55, 60, 40, 0.7); 
+			}
+			
+			#cube .three {
+				-webkit-transform: rotateY(90deg) translateZ(200px);
+				background-color: rgba(130, 50, 10, 0.7); 
+			}
+			
+			#cube .four {
+				-webkit-transform: rotateY(180deg) translateZ(200px);
+				background-color: rgba(255, 0, 0, 0.7); 
+			}
+			
+			#cube .five {
+				-webkit-transform: rotateY(-90deg) translateZ(200px); 
+				background-color: rgba(0, 250, 50, 0.7); 
+			}
+			
+			#cube .six {
+				-webkit-transform: rotateX(-90deg) translateZ(200px) rotate(180deg);
+				background-color: rgba(0, 0, 250, 0.7); 
+			}
+		</style>
+	</head>
+	<body>
+		<div id="experiment">
+			<div id="cube">
+				<div class="face one">
+					face one
+				</div>
+				<div class="face two">
+					face two
+				</div>
+				<div class="face three">
+					face three
+				</div>
+				<div class="face four">
+					face four
+				</div>
+				<div class="face five">
+					face five
+				</div>
+				<div class="face six">
+					face six
+				</div>
+			</div>
+		</div>
+		<script src="jquery-1.8.1.js"></script>
+		<script>
+
+			var key = {
+			
+				left: 37,
+				up: 38,
+				right: 39,
+				down: 40
+			}
+			
+			var angle = {
+				x: 0,
+				y: 0
+			}
+			
+			document.addEventListener('keydown', function(e){
+				
+				switch(e.keyCode)
+				{
+					case key.left:
+					angle.y -= 90;
+					break;
+					
+					case key.up:
+					angle.x += 90;
+					break;
+					
+					case key.right:
+					angle.y += 90;
+					break;
+					
+					case key.down:
+					angle.x -= 90;
+					break;
+				};
+				
+				document.getElementById('cube').style.webkitTransform = "rotateX("+angle.x+"deg) rotateY("+angle.y+"deg)";
+			});
+			
+		</script>
+	</body>
+</html>
