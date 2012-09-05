@@ -20,12 +20,15 @@
 				margin: 100px auto;
 			}
 		</style>
+			<!--[if !IE]>	
+			<![endif]-->
 	</head>
 	<body>
 		<div class="square">
 			<div id="side1">iRotate</div>
 		</div>
 	</body>
+
 	<script>
 		var yAngle = 0,
 			element = document.getElementById('side1');
@@ -53,4 +56,5 @@
 			element.style.MozTransform = "rotateY("+yAngle+"deg)";				
 		}
 	</script>
+
 </html>
