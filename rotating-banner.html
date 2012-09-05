@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<style>
+			.square { 
+				-webkit-perspective: 800;
+				-moz-perspective: 800;				
+				-webkit-perspective-origin: 50% 50%;
+				-moz-perspective-origin: 50% 50%;
+			}
+			#side1 { 
+				background: rgba(50, 50, 50, 0.5); 
+				width: 200px; 
+				height: 200px; 
+				text-align: center; 
+				line-height: 200px; 
+				font-size: 3em; 
+				color: #fff; 
+				margin: 100px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="square">
+			<div id="side1">iRotate</div>
+		</div>
+	</body>
+	<script>
+		var yAngle = 0,
+			element = document.getElementById('side1');
+		
+			setInterval(loop,15);			
+		
+		function loop(){
+	
+			if(yAngle == 359){
+				yAngle = 0;
+			} 
+			else if(yAngle > 90 && yAngle < 270){
+				yAngle += 1;
+				element.style.color = "#c1c1c1";
+			}
+			else if(yAngle > 270 && yAngle < 360){
+				yAngle += 1;
+				element.style.color = "#fff";
+			}
+			else {
+				yAngle += 1;
+			}
+			
+			element.style.webkitTransform = "rotateY("+yAngle+"deg)";
+			element.style.MozTransform = "rotateY("+yAngle+"deg)";				
+		}
+		</script>
+</html>
